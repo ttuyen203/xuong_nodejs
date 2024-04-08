@@ -1,4 +1,4 @@
-import Genre from "../models/genre";
+import Genre from "../models/genre.js";
 
 class GenreController {
   async getAllGenres(req, res) {

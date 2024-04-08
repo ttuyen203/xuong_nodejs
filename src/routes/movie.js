@@ -1,6 +1,6 @@
 import express from "express";
-import MovieController from "../controllers/movie";
-import { verifyToken, checkUserInDB } from "../middlewares/checkPermission";
+import MovieController from "../controllers/movie.js";
+import { verifyToken, checkUserInDB } from "../middlewares/checkPermission.js";
 const router = express();
 
 const movieController = new MovieController();

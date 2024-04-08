@@ -1,7 +1,7 @@
-import User from "../models/user";
+import User from "../models/user.js";
 import bcryptjs from "bcryptjs";
 import jwt from "jsonwebtoken";
-import { registerValid, loginValid } from "../validations/user";
+import { registerValid, loginValid } from "../validations/user.js";
 
 class UserController {
   async userRegister(req, res) {
