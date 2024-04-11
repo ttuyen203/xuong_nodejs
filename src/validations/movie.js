@@ -8,6 +8,7 @@ const movieValid = Joi.object({
   genres: Joi.string().required(),
   category: Joi.string().required(),
   runingTime: Joi.string().optional().allow(""),
+  language: Joi.string().optional().allow(""),
   rated: Joi.number().min(1),
   trailer: Joi.string().required(),
   imgBanner: Joi.string().required(),
