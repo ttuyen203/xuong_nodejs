@@ -26,7 +26,7 @@ const MovieSchema = new Schema(
       ref: "Category",
       require: true,
     },
-    runingTime: {
+    runningTime: {
       type: String,
     },
     language: {
