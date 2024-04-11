@@ -65,15 +65,6 @@ class MovieController {
   }
   async deleteMovie(req, res) {
     try {
-      const { error } = movieValid.validate(req.body, {
-        abortEarly: false,
-      });
-      if (error) {
-        const errorMessage = error.details.map((detail) => detail.message);
-        return res.status(400).json({
-          message: errorMessage,
-        });
-      }
       const movie = await Movie.findByIdAndDelete(req.params.id);
       if (!movie) {
         return res.status(404).json({

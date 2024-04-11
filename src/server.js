@@ -6,6 +6,9 @@ import genreRouter from "./routes/genre.js";
 import userRouter from "./routes/user.js";
 import dotenv from "dotenv";
 const app = express();
+app.get("/", (req, res) => {
+  res.send("Home");
+});
 dotenv.config();
 app.use(
   express.urlencoded({
