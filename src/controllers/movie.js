@@ -1,4 +1,5 @@
 import Movie from "../models/movie.js";
+import movieValid from "../validations/movie.js";
 
 class MovieController {
   async getAllMovies(req, res) {
@@ -37,6 +38,15 @@ class MovieController {
   }
   async createMovie(req, res) {
     try {
+      const { error } = movieValid.validate(req.body, {
+        abortEarly: false,
+      });
+      if (error) {
+        const errorMessage = error.details.map((detail) => detail.message);
+        return res.status(400).json({
+          message: errorMessage,
+        });
+      }
       const movie = await Movie.create(req.body);
       if (!movie) {
         return res.status(404).json({
@@ -55,6 +65,15 @@ class MovieController {
   }
   async deleteMovie(req, res) {
     try {
+      const { error } = movieValid.validate(req.body, {
+        abortEarly: false,
+      });
+      if (error) {
+        const errorMessage = error.details.map((detail) => detail.message);
+        return res.status(400).json({
+          message: errorMessage,
+        });
+      }
       const movie = await Movie.findByIdAndDelete(req.params.id);
       if (!movie) {
         return res.status(404).json({
@@ -73,6 +92,15 @@ class MovieController {
   }
   async updateMovie(req, res) {
     try {
+      const { error } = movieValid.validate(req.body, {
+        abortEarly: false,
+      });
+      if (error) {
+        const errorMessage = error.details.map((detail) => detail.message);
+        return res.status(400).json({
+          message: errorMessage,
+        });
+      }
       const movie = await Movie.findByIdAndUpdate(req.params.id, req.body, {
         new: true,
       });
